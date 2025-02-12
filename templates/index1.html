@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Fraud Detection System</h2>
+
+        <form action="/predict" method="post">
+            <label>Merchant Name:</label>
+            <input type="text" name="merchant_name" required>
+
+            <label>Transaction Amount:</label>
+            <input type="number" name="transaction_amount" step="0.01" required>
+
+            <label>Customer City:</label>
+            <input type="text" name="customer_city" required>
+
+            <label>Customer Job:</label>
+            <input type="text" name="customer_job" required>
+
+            <label>Age:</label>
+            <input type="number" name="age" required>
+
+            <label>Customer State:</label>
+            <input type="text" name="customer_state_state_full" required>
+
+            <label>Merchant Category:</label>
+            <input type="text" name="merchant_category" required>
+
+            <label>Transaction Month:</label>
+            <input type="number" name="transaction_month" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">Prediction Result: {{ prediction }}</div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
